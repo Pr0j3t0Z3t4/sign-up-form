@@ -145,6 +145,23 @@ button:hover {
     display: inline-block;
     margin-left: 10px;
 }
+.sidebar {
+  display: flex;
+  flex-direction: column;   /* Alinha itens em coluna */
+  justify-content: flex-end; /* Empurra o conteúdo para o fundo (baixo) */
+  align-items: flex-end;    /* Alinha o conteúdo à direita */
+  
+  /* Garanta que a sidebar tenha altura total e preenchimento */
+  height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.credits {
+  margin: 0;
+  font-size: 0.8rem;
+  text-align: right;
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
