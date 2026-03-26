@@ -3,9 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
     <title>Sign Up | Tradinoi</title>
 </head>
 <body>
-    
+    <main class="container">
+  <!-- Lado Esquerdo: Imagem e Logo -->
+  <section class="sidebar">
+    <p class="credits"><a href="https://unsplash.com/pt-br/@jasondonsh?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jason Don</a> na <a href="https://unsplash.com/pt-br/fotografias/discos-e-posteres-expostos-em-uma-loja-vintage-XMYFTIEL8_U?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+  </section>
+
+  <!-- Lado Direito: Texto e Formulário -->
+  <section class="content">
+    <div class="header-text">
+      <p>Este não é um serviço real...</p>
+    </div>
+    <form action="#" method="post" id="signup-form">
+      <div class="form-section">
+        <h3>Vamos fazer isso!</h3>
+        <!-- Agrupe os inputs em pares para o layout de duas colunas -->
+        <div class="input-group">
+          <label for="first_name">NOME</label>
+          <input type="text" id="first_name" name="first_name" required>
+        </div>
+        <div class="input-group">
+          <label for="last_name">SOBRENOME</label>
+          <input type="text" id="last_name" name="last_name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">EMAIL</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="input-group">
+          <label for="phone">TELEFONE</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="input-group">
+          <label for="password">SENHA</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="input-group">
+          <label for="confirm_password">CONFIRMAR SENHA</label>
+          <input type="password" id="confirm_password" name="confirm_password" required>
+        </div>
+      </div>
+      <button type="submit">Criar Conta</button>
+    </form>
+    <p class="login-link">Já possui uma conta? <a href="#">Entrar</a></p>
+  </section>
+</main>
+<script>
+  const form = document.getElementById('signup-form');
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirm_password');
+
+  form.addEventListener('submit', (e) => {
+    if (password.value !== confirmPassword.value) {
+      e.preventDefault();
+      alert('As senhas não coincidem!');
+      password.classList.add('error');
+      confirmPassword.classList.add('error');
+    } else {
+      password.classList.remove('error');
+      confirmPassword.classList.remove('error');
+    }
+  });
+
+  confirmPassword.addEventListener('input', () => {
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setCustomValidity('As senhas não coincidem');
+    } else {
+      confirmPassword.setCustomValidity('');
+    }
+  });
+</script>
 </body>
 </html>

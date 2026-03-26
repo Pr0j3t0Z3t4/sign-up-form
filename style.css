@@ -1,0 +1,174 @@
+/* Reset básico para garantir que tudo preencha a tela */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green: #737A3C;
+    --bg-creme: #F2E9D8;
+    --error-red: #D94132;
+    --text-dark: #2B4C59;
+    --border-light: #E5E7EB;
+    --focus-blue: #2563eb;
+    --overlay: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Roboto', system-ui, sans-serif;
+    color: var(--text-dark);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Lado Esquerdo - Sidebar com Imagem */
+.sidebar {
+    flex: 1; /* Ocupa menos espaço que o formulário */
+    background-image: url('image/jason-don-XMYFTIEL8_U-unsplash.jpg'); /* Nome exato do seu arquivo */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.sidebar img {
+    border: 2px solid white;
+    border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Lado Direito - Conteúdo e Formulário */
+.content {
+    flex: 2; /* Ocupa mais espaço */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-text {
+    padding: 40px 60px;
+    background-color: var(--bg-creme);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+form {
+    padding: 40px 60px;
+}
+
+.form-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Divide em 2 colunas */
+    gap: 20px 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 2px solid var(--border-light);
+    border-radius: 8px;
+    background-color: #fafafa;
+}
+
+.form-section h3 {
+    grid-column: span 2; /* O título ocupa as duas colunas */
+    margin-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Estilos de Validação e Foco */
+input:focus {
+    outline: none;
+    border-color: var(--focus-blue);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--error-red);
+}
+
+/* Botão e Rodapé */
+button {
+    background-color: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+.login-footer {
+    padding: 0 60px;
+}
+
+.login-footer a {
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        flex: none;
+        height: 300px;
+    }
+    
+    .content {
+        flex: 1;
+    }
+    
+    .header-text,
+    form,
+    .login-footer {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .form-section {
+        grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+        gap: 15px;
+    }
+    
+    .form-section h3 {
+        grid-column: span 1;
+    }
+}
