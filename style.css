@@ -141,6 +141,11 @@ button:hover {
     font-weight: bold;
 }
 
+.login-link{
+    display: inline-block;
+    margin-left: 10px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .container {
